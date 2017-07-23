@@ -1,0 +1,24 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "VirtualTam <virtualtam@flibidi.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "html-webpack-plugin": "^2.29.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "scripts": {
+    "build": "webpack --env production",
+    "lint:js": "eslint app/ webpack.*.js --cache",
+    "start": "nodemon --watch webpack.config.js --exec 'webpack-dev-server --env development'"
+  }
+}
