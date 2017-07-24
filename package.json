@@ -5,6 +5,7 @@
   "author": "VirtualTam <virtualtam@flibidi.net>",
   "license": "MIT",
   "devDependencies": {
+    "css-loader": "^0.28.4",
     "eslint": "^4.3.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-config-airbnb-base": "^11.2.0",
@@ -13,12 +14,22 @@
     "eslint-plugin-react": "^7.1.0",
     "html-webpack-plugin": "^2.29.0",
     "nodemon": "^1.11.0",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
   },
   "scripts": {
     "build": "webpack --env production",
     "lint:js": "eslint app/ webpack.*.js --cache",
+    "lint:style": "stylelint app/**/*.css",
     "start": "nodemon --watch webpack.config.js --exec 'webpack-dev-server --env development'"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^3.0.0",
+    "purecss": "^1.0.0"
   }
 }
