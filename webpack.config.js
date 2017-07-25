@@ -1,6 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTemplate = require('html-webpack-template');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
@@ -18,11 +19,16 @@ const commonConfig = {
       {
         test: /\.css$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" }
-        ]
-      }
-    ]
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ],
+      },
+      {
+        test: /\.jsx$/,
+        exclude: '/node_modules/',
+        loader: 'babel-loader?cacheDirectory',
+      },
+    ],
   },
   output: {
     path: PATHS.build,
@@ -30,13 +36,16 @@ const commonConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'WWW',
+      template: HtmlWebpackTemplate,
+      title: 'd3v',
+      appMountId: 'app',
+      inject: false,
     }),
     new ExtractTextPlugin({
       filename: '[name].css',
     }),
     new PurifyCSSPlugin({
-      paths: glob.sync(`${PATHS.app}/**/*.js`, { nodir: true })
+      paths: glob.sync(`${PATHS.app}/**/*.js`, { nodir: true }),
     }),
   ],
   resolve: {
@@ -50,11 +59,11 @@ const productionConfig = () => {
       loaders: [
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+          loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
         },
       ],
     },
-  }
+  };
 
   return Object.assign(
     {},

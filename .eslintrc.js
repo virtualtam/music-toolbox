@@ -5,8 +5,17 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: 'airbnb',
+  extends: [
+    'airbnb',
+    'plugin:react/recommended',
+  ],
+  plugins: [
+    'react',
+  ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
     sourceType: 'module',
   },
 };
