@@ -1,7 +1,7 @@
 import 'purecss';
 import React from 'react';
-import { Score } from './Score';
-import { ScoreControls } from './ScoreControls';
+import Score from './Score';
+import ScoreControls from './ScoreControls';
 
 const AVAILABLE_PATTERNS = [
   '1', '1r',
@@ -16,14 +16,23 @@ const TIME_SIGNATURES = ['2/4', '3/4', '4/4', '6/8'];
 
 const BARS = [9, 12];
 
-export class App extends React.Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dummy: 'dummy',
+    };
+  }
+
   render() {
     return (
       <div className="pure-g">
         <div className="pure-u-1-4">
-          <ScoreControls bars={BARS}
-                         patterns={AVAILABLE_PATTERNS}
-                         signatures={TIME_SIGNATURES} />
+          <ScoreControls
+            bars={BARS}
+            patterns={AVAILABLE_PATTERNS}
+            signatures={TIME_SIGNATURES}
+          />
         </div>
         <div className="pure-u-3-4">
           <Score />
@@ -32,3 +41,5 @@ export class App extends React.Component {
     );
   }
 }
+
+export default App;

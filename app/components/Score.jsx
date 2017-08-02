@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function Score(props) {
+export default function Score(props) {
   return <p>Plop</p>;
 }
