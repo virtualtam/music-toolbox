@@ -15,6 +15,12 @@ const AVAILABLE_PATTERNS = [
 const TIME_SIGNATURES = ['2/4', '3/4', '4/4', '6/8'];
 
 const BARS = [9, 12];
+const BAR_WIDTH = 280;
+const BAR_HEIGHT = 100;
+const BARS_PER_ROW = 2;
+
+// const NOTE = 'b/4';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -35,7 +41,12 @@ class App extends React.Component {
           />
         </div>
         <div className="pure-u-3-4">
-          <Score />
+          <Score
+            barsPerRow={BARS_PER_ROW}
+            barHeight={BAR_HEIGHT}
+            barWidth={BAR_WIDTH}
+            nBars="9"
+          />
         </div>
       </div>
     );
