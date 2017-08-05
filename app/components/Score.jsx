@@ -3,30 +3,32 @@ import Vex from 'vexflow';
 
 const VF = Vex.Flow;
 
-class Score extends React.Component {
+export default class Score extends React.Component {
   constructor(props) {
     super(props);
     this.context = null;
+    this.scoreRef = null;
   }
 
-  handleProps() {
-    this.context = VF.Renderer.getSVGContext(
-      { React: React },
-      this.props.barsPerRow * this.props.barWidth + 20,
-      (Math.floor(this.props.nBars / this.props.barsPerRow) * this.props.barHeight) + 20,
-    );
-    const stave = VF.Stave(0, 0, this.props.barWidth);
-    const notes = [];
-    notes.push(
-      new VF.StaveNote({ keys: ['b/4'], duration: '1' }),
-    );
-    VF.FormatAndDraw(this.context, stave, notes);
+  componentDidMount() {
+    const chord = new VF.StaveNote({
+      keys: ['c/0', 'e/4', 'g#/8'],
+      duration: 'w',
+    }).addAccidental(0, new VF.Accidental('bb'))
+      .addAccidental(2, new VF.Accidental('#'));
+
+    const svgContainer = document.createElement('div');
+    const renderer = new VF.Renderer(svgContainer, VF.Renderer.Backends.SVG);
+    const ctx = renderer.getContext();
+
+    const stave = new VF.Stave(0, 0, 100);
+    stave.setContext(ctx).draw();
+    VF.Formatter.FormatAndDraw(ctx, stave, [chord]);
+
+    this.scoreRef.appendChild(svgContainer);
   }
 
   render() {
-    this.handleProps();
-    return <div>{this.context.toSVG()}</div>;
+    return <div ref={(el) => { this.scoreRef = el; }} />;
   }
 }
-
-export default Score;

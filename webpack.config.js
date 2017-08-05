@@ -61,6 +61,11 @@ const productionConfig = () => {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
         },
+        {
+          test: /\.jsx$/,
+          exclude: '/node_modules/',
+          loader: 'babel-loader?cacheDirectory',
+        },
       ],
     },
   };
