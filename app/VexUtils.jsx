@@ -45,7 +45,7 @@ export default function generateSvgScore(nBars, patterns, timeSignature) {
   const renderer = new VF.Renderer(svgContainer, VF.Renderer.Backends.SVG);
   renderer.resize(
     (BARS_PER_ROW * BAR_WIDTH) + 20,
-    (Math.floor(nBars / BARS_PER_ROW) * BAR_HEIGHT) + 20,
+    (Math.ceil(nBars / BARS_PER_ROW) * BAR_HEIGHT) + 20,
   );
   const context = renderer.getContext();
   context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');

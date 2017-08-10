@@ -23,7 +23,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      nBars: BARS[0],
+      nBars: BARS[1],
       patterns: PATTERNS,
       timeSignature: TIME_SIGNATURES[2],
     };
