@@ -1,5 +1,7 @@
 import React from 'react';
 
+import generateSvgScore from '../VexUtils';
+
 
 export default class Score extends React.Component {
   constructor(props) {
@@ -8,7 +10,20 @@ export default class Score extends React.Component {
   }
 
   componentDidMount() {
-    this.scoreRef.appendChild(this.props.svgScore);
+    this.scoreRef.appendChild(generateSvgScore(
+      this.props.nBars,
+      this.props.patterns,
+      this.props.timeSignature,
+    ));
+  }
+  componentWillReceiveProps(newProps) {
+    this.props = newProps;
+    this.scoreRef.innerHTML = '';
+    this.scoreRef.appendChild(generateSvgScore(
+      this.props.nBars,
+      this.props.patterns,
+      this.props.timeSignature,
+    ));
   }
 
   render() {

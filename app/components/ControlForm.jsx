@@ -15,15 +15,39 @@ export default class ControlForm extends React.Component {
     };
   }
 
+  handleChangeTimeSignature(event) {
+    this.setState({ timeSignature: event.target.value });
+  }
+
+  handleChangeBar(event) {
+    this.setState({ nBars: event.target.value });
+  }
+
+  handleCheckPattern() {
+
+  }
+
+  handleClick(event) {
+    this.props.onClick(event, this.state);
+  }
+
   render() {
     return (
       <form className="pure-form pure-form-stacked" id="scoreControls">
         <fieldset>
           <label htmlFor="timeSignature">Time signature</label>
-          <TimeSignatures signatures={this.props.signatures} />
+          <TimeSignatures
+            signatures={this.props.signatures}
+            value={this.state.timeSignature}
+            onChange={event => this.handleChangeTimeSignature(event)}
+          />
 
           <label htmlFor="nBars">Bars</label>
-          <Bars bars={this.props.bars} />
+          <Bars
+            bars={this.props.bars}
+            value={this.state.nBars}
+            onChange={event => this.handleChangeBar(event)}
+          />
 
           {this.props.patterns.map(
             pattern =>
@@ -31,8 +55,9 @@ export default class ControlForm extends React.Component {
           )}
 
           <button
+            type="button"
             className="pure-button pure-button-primary"
-            onClick={this.props.onClick}
+            onClick={event => this.handleClick(event)}
           >
             Generate!
           </button>

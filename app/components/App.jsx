@@ -4,7 +4,6 @@ import React from 'react';
 import Score from './Score';
 import ControlForm from './ControlForm';
 
-import generateSvgScore from '../VexUtils';
 
 /* Score properties */
 const BARS = [9, 12];
@@ -29,16 +28,8 @@ export default class App extends React.Component {
     };
   }
 
-  generateScore() {
-    return generateSvgScore(
-      this.state.nBars,
-      this.state.patterns,
-      this.state.timeSignature,
-    );
-  }
-
-  handleClick() {
-    console.log('click!');
+  handleClick(event, props) {
+    this.setState(props);
   }
 
   render() {
@@ -47,13 +38,20 @@ export default class App extends React.Component {
         <div className="pure-u-1-4">
           <ControlForm
             bars={BARS}
+            defaultBars={BARS[1]}
             patterns={PATTERNS}
+            defaultPatterns={PATTERNS}
             signatures={TIME_SIGNATURES}
-            onClick={this.handleClick}
+            defaultTimeSignature={TIME_SIGNATURES[2]}
+            onClick={(event, props) => this.handleClick(event, props)}
           />
         </div>
         <div className="pure-u-3-4">
-          <Score svgScore={this.generateScore()} />
+          <Score
+            nBars={this.state.nBars}
+            patterns={this.state.patterns}
+            timeSignature={this.state.timeSignature}
+          />
         </div>
       </div>
     );

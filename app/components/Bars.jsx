@@ -1,9 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default function Bars(props) {
   return (
-    <select id="nBars">
+    <select
+      value={props.value}
+      onChange={event => props.onChange(event)}
+    >
       {props.bars.map(nBars =>
         (
           <option value={nBars} key={nBars}>
@@ -14,11 +16,3 @@ export default function Bars(props) {
     </select>
   );
 }
-
-Bars.propTypes = {
-  bars: PropTypes.arrayOf(PropTypes.number),
-};
-
-Bars.defaultProps = {
-  bars: [],
-};

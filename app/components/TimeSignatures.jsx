@@ -1,9 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default function TimeSignatures(props) {
   return (
-    <select id="timeSignature">
+    <select
+      value={props.value}
+      onChange={event => props.onChange(event)}
+    >
       {props.signatures.map(
         signature => (
           <option value={signature} key={signature}>
@@ -14,11 +16,3 @@ export default function TimeSignatures(props) {
     </select>
   );
 }
-
-TimeSignatures.propTypes = {
-  signatures: PropTypes.arrayOf(PropTypes.string),
-};
-
-TimeSignatures.defaultProps = {
-  signatures: [],
-};
