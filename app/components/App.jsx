@@ -1,56 +1,61 @@
 import 'purecss';
 import React from 'react';
-import Score from './Score';
-import ScoreControls from './ScoreControls';
 
-const AVAILABLE_PATTERNS = [
+import Score from './Score';
+import ControlForm from './ControlForm';
+
+import generateSvgScore from '../VexUtils';
+
+/* Score properties */
+const BARS = [9, 12];
+const PATTERNS = [
   '1', '1r',
   '2', '2r',
   '4', '4r',
-  '8 8', '8 8r', '8r 8',
-  '16 16 16 16', '16 16 8', '16 8 16', '8 16 16',
-  '16r 16 16 16', '16 16r 16 16', '16 16 16r 16', '16 16 16 16r',
+  // '8 8', '8 8r', '8r 8',
+  // '16 16 16 16', '16 16 8', '16 8 16', '8 16 16',
+  // '16r 16 16 16', '16 16r 16 16', '16 16 16r 16', '16 16 16 16r',
 ];
-
 const TIME_SIGNATURES = ['2/4', '3/4', '4/4', '6/8'];
 
-const BARS = [9, 12];
-const BAR_WIDTH = 280;
-const BAR_HEIGHT = 100;
-const BARS_PER_ROW = 2;
 
-// const NOTE = 'b/4';
-
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+export default class App extends React.Component {
+  constructor() {
+    super();
     this.state = {
-      dummy: 'dummy',
+      nBars: BARS[0],
+      patterns: PATTERNS,
+      timeSignature: TIME_SIGNATURES[2],
     };
+  }
+
+  generateScore() {
+    return generateSvgScore(
+      this.state.nBars,
+      this.state.patterns,
+      this.state.timeSignature,
+    );
+  }
+
+  handleClick() {
+    console.log('click!');
   }
 
   render() {
     return (
       <div className="pure-g">
         <div className="pure-u-1-4">
-          <ScoreControls
+          <ControlForm
             bars={BARS}
-            patterns={AVAILABLE_PATTERNS}
+            patterns={PATTERNS}
             signatures={TIME_SIGNATURES}
+            onClick={this.handleClick}
           />
         </div>
         <div className="pure-u-3-4">
-          <Score
-            barsPerRow={BARS_PER_ROW}
-            barHeight={BAR_HEIGHT}
-            barWidth={BAR_WIDTH}
-            nBars="9"
-          />
+          <Score svgScore={this.generateScore()} />
         </div>
       </div>
     );
   }
 }
-
-export default App;
