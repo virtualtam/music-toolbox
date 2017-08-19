@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 
 export default function Pattern(props) {
   const patternId = props.pattern.replace(' ', '');
@@ -12,18 +10,12 @@ export default function Pattern(props) {
     >
       <input
         id={patternId}
+        value={props.pattern}
         type="checkbox"
-        checked="true"
+        checked={props.checked}
+        onChange={(event, pattern) => props.onChange(event, pattern)}
       />
       {props.pattern}
     </label>
   );
 }
-
-Pattern.propTypes = {
-  pattern: PropTypes.string,
-};
-
-Pattern.defaultProps = {
-  pattern: '',
-};

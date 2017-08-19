@@ -8,9 +8,10 @@ import TimeSignatures from './TimeSignatures';
 export default class ControlForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       nBars: props.defaultBars,
-      patterns: props.defaultPatterns,
+      checkedPatterns: props.checkedPatterns,
       timeSignature: props.defaultTimeSignature,
     };
   }
@@ -23,8 +24,17 @@ export default class ControlForm extends React.Component {
     this.setState({ nBars: event.target.value });
   }
 
-  handleCheckPattern() {
-
+  handleChangePattern(event) {
+    const patterns = new Set(this.state.checkedPatterns);
+    if (event.target.checked) {
+      patterns.add(event.target.value);
+    } else {
+      patterns.delete(event.target.value);
+    }
+    console.log(event);
+    console.log(event.target.value);
+    console.log(patterns);
+    this.setState({ checkedPatterns: Array.from(patterns) });
   }
 
   handleClick(event) {
@@ -51,7 +61,12 @@ export default class ControlForm extends React.Component {
 
           {this.props.patterns.map(
             pattern =>
-              <Pattern key={pattern} pattern={pattern} />,
+              <Pattern
+                key={pattern}
+                pattern={pattern}
+                checked={this.state.checkedPatterns.indexOf(pattern) > -1}
+                onChange={event => this.handleChangePattern(event)}
+              />,
           )}
 
           <button

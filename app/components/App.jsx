@@ -8,12 +8,23 @@ import ControlForm from './ControlForm';
 /* Score properties */
 const BARS = [9, 12];
 const PATTERNS = [
-  '1', '1r',
-  '2', '2r',
-  '4', '4r',
-  // '8 8', '8 8r', '8r 8',
-  // '16 16 16 16', '16 16 8', '16 8 16', '8 16 16',
-  // '16r 16 16 16', '16 16r 16 16', '16 16 16r 16', '16 16 16 16r',
+  '1',
+  '1r',
+  '2',
+  '2r',
+  '4',
+  '4r',
+  '8 8',
+  '8 8r',
+  '8r 8',
+  '16 16 16 16',
+  '16 16 8',
+  '16 8 16',
+  '8 16 16',
+  '16r 16 16 16',
+  '16 16r 16 16',
+  '16 16 16r 16',
+  '16 16 16 16r',
 ];
 const TIME_SIGNATURES = ['2/4', '3/4', '4/4', '6/8'];
 
@@ -24,6 +35,7 @@ export default class App extends React.Component {
     this.state = {
       nBars: BARS[1],
       patterns: PATTERNS,
+      checkedPatterns: PATTERNS.slice(0, 9),
       timeSignature: TIME_SIGNATURES[2],
     };
   }
@@ -39,8 +51,8 @@ export default class App extends React.Component {
           <ControlForm
             bars={BARS}
             defaultBars={BARS[1]}
-            patterns={PATTERNS}
-            defaultPatterns={PATTERNS}
+            patterns={this.state.patterns}
+            checkedPatterns={this.state.checkedPatterns}
             signatures={TIME_SIGNATURES}
             defaultTimeSignature={TIME_SIGNATURES[2]}
             onClick={(event, props) => this.handleClick(event, props)}
@@ -49,7 +61,7 @@ export default class App extends React.Component {
         <div className="pure-u-3-4">
           <Score
             nBars={this.state.nBars}
-            patterns={this.state.patterns}
+            patterns={this.state.checkedPatterns}
             timeSignature={this.state.timeSignature}
           />
         </div>
