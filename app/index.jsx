@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import RhythmScoreApp from './components/RhythmScoreApp';
 
 ReactDOM.render(
-  <App />,
+  <RhythmScoreApp />,
   document.getElementById('app'),
 );

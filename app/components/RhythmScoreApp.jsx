@@ -1,7 +1,7 @@
 import 'purecss';
 import React from 'react';
 
-import Score from './Score';
+import VexScore from './VexScore';
 import ControlForm from './ControlForm';
 
 
@@ -29,7 +29,7 @@ const PATTERNS = [
 const TIME_SIGNATURES = ['2/4', '3/4', '4/4', '6/8'];
 
 
-export default class App extends React.Component {
+export default class RhythmScoreApp extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -59,7 +59,7 @@ export default class App extends React.Component {
           />
         </div>
         <div className="pure-u-3-4">
-          <Score
+          <VexScore
             nBars={this.state.nBars}
             patterns={Array.from(this.state.checkedPatterns)}
             timeSignature={this.state.timeSignature}
