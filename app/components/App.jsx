@@ -52,7 +52,7 @@ export default class App extends React.Component {
             bars={BARS}
             defaultBars={BARS[1]}
             patterns={this.state.patterns}
-            checkedPatterns={this.state.checkedPatterns}
+            checkedPatterns={new Set(this.state.checkedPatterns)}
             signatures={TIME_SIGNATURES}
             defaultTimeSignature={TIME_SIGNATURES[2]}
             onClick={(event, props) => this.handleClick(event, props)}
@@ -61,7 +61,7 @@ export default class App extends React.Component {
         <div className="pure-u-3-4">
           <Score
             nBars={this.state.nBars}
-            patterns={this.state.checkedPatterns}
+            patterns={Array.from(this.state.checkedPatterns)}
             timeSignature={this.state.timeSignature}
           />
         </div>

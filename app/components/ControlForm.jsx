@@ -25,16 +25,15 @@ export default class ControlForm extends React.Component {
   }
 
   handleChangePattern(event) {
-    const patterns = new Set(this.state.checkedPatterns);
+    const checkedPatterns = this.state.checkedPatterns;
+
     if (event.target.checked) {
-      patterns.add(event.target.value);
+      checkedPatterns.add(event.target.value);
     } else {
-      patterns.delete(event.target.value);
+      checkedPatterns.delete(event.target.value);
     }
-    console.log(event);
-    console.log(event.target.value);
-    console.log(patterns);
-    this.setState({ checkedPatterns: Array.from(patterns) });
+
+    this.setState(checkedPatterns);
   }
 
   handleClick(event) {
@@ -64,7 +63,7 @@ export default class ControlForm extends React.Component {
               <Pattern
                 key={pattern}
                 pattern={pattern}
-                checked={this.state.checkedPatterns.indexOf(pattern) > -1}
+                checked={this.state.checkedPatterns.has(pattern)}
                 onChange={event => this.handleChangePattern(event)}
               />,
           )}
