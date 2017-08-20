@@ -10,7 +10,7 @@ export default function PatternButton(props) {
     <button
       id={patternId}
       type="button"
-      className={klazz + ' pure-button'}
+      className={`${klazz} pure-button`}
       value={props.pattern}
       onClick={(event, pattern) => props.onClick(event, pattern)}
     >

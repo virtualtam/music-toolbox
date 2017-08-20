@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {generateSvgPattern} from '../VexUtils';
+import { generateSvgPattern } from '../VexUtils';
 
 
 export default class VexPattern extends React.Component {
