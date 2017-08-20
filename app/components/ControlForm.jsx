@@ -45,19 +45,26 @@ export default class ControlForm extends React.Component {
     return (
       <form className="pure-form pure-form-stacked" id="scoreControls">
         <fieldset>
-          <label htmlFor="timeSignature">Time signature</label>
-          <TimeSignatures
-            signatures={this.props.signatures}
-            value={this.state.timeSignature}
-            onChange={event => this.handleChangeTimeSignature(event)}
-          />
+          <legend>Rhythm Sheet Generator</legend>
 
-          <label htmlFor="nBars">Bars</label>
-          <Bars
-            bars={this.props.bars}
-            value={this.state.nBars}
-            onChange={event => this.handleChangeBar(event)}
-          />
+          <div className="pure-g">
+            <div className="pure-u-1-2">
+              <label htmlFor="timeSignature">Time signature</label>
+              <TimeSignatures
+                signatures={this.props.signatures}
+                value={this.state.timeSignature}
+                onChange={event => this.handleChangeTimeSignature(event)}
+              />
+            </div>
+            <div className="pure-u-1-2">
+              <label htmlFor="nBars">Bars</label>
+              <Bars
+                bars={this.props.bars}
+                value={this.state.nBars}
+                onChange={event => this.handleChangeBar(event)}
+              />
+            </div>
+          </div>
 
           {this.props.patterns.map(
             pattern =>
