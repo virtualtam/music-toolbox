@@ -29,7 +29,7 @@ function randomNotes(patterns, timeSignature) {
 
   while (remainingDuration > 0) {
     const pattern = randomPattern(patterns, remainingDuration);
-    pattern.split(' ').forEach((note) => {
+    pattern.split(' ').forEach((note) => { // eslint-disable-line no-loop-func
       notes.push(
         new VF.StaveNote({ keys: [NOTE], duration: note, stem_direction: -1 }),
       );
