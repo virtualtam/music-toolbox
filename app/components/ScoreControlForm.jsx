@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Bars from './Bars';
+import BarSelect from './BarSelect';
 import PatternButton from './PatternButton';
-import TimeSignatures from './TimeSignatures';
+import TimeSignatureSelect from './TimeSignatureSelect';
 
 
-export default class ControlForm extends React.Component {
+export default class ScoreControlForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,7 +50,7 @@ export default class ControlForm extends React.Component {
           <div className="pure-g">
             <div className="pure-u-1-2">
               <label htmlFor="timeSignature">Time signature</label>
-              <TimeSignatures
+              <TimeSignatureSelect
                 signatures={this.props.signatures}
                 value={this.state.timeSignature}
                 onChange={event => this.handleChangeTimeSignature(event)}
@@ -58,7 +58,7 @@ export default class ControlForm extends React.Component {
             </div>
             <div className="pure-u-1-2">
               <label htmlFor="nBars">Bars</label>
-              <Bars
+              <BarSelect
                 bars={this.props.bars}
                 value={this.state.nBars}
                 onChange={event => this.handleChangeBar(event)}
@@ -67,13 +67,14 @@ export default class ControlForm extends React.Component {
           </div>
 
           {this.props.patterns.map(
-            pattern =>
+            pattern => (
               <PatternButton
                 key={pattern}
                 pattern={pattern}
                 active={this.state.checkedPatterns.has(pattern)}
                 onClick={event => this.handleChangePattern(event)}
-              />,
+              />
+            ),
           )}
 
           <br />

@@ -2,7 +2,7 @@ import 'purecss';
 import React from 'react';
 
 import VexScore from './VexScore';
-import ControlForm from './ControlForm';
+import ScoreControlForm from './ScoreControlForm';
 
 
 /* Score properties */
@@ -48,7 +48,7 @@ export default class RhythmScoreApp extends React.Component {
     return (
       <div className="pure-g">
         <div className="pure-u-1-4">
-          <ControlForm
+          <ScoreControlForm
             bars={BARS}
             defaultBars={BARS[1]}
             patterns={this.state.patterns}

@@ -1,15 +1,15 @@
 import React from 'react';
 
-export default function Bars(props) {
+export default function TimeSignatureSelect(props) {
   return (
     <select
       value={props.value}
       onChange={event => props.onChange(event)}
     >
-      {props.bars.map(nBars =>
-        (
-          <option value={nBars} key={nBars}>
-            {nBars}
+      {props.signatures.map(
+        signature => (
+          <option value={signature} key={signature}>
+            {signature}
           </option>
         ),
       )}
