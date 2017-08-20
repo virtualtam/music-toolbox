@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 export default function TimeSignatureSelect(props) {
   return (
@@ -16,3 +18,9 @@ export default function TimeSignatureSelect(props) {
     </select>
   );
 }
+
+TimeSignatureSelect.propTypes = {
+  signatures: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

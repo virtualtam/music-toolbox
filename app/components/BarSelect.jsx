@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function BarSelect(props) {
   return (
@@ -16,3 +17,9 @@ export default function BarSelect(props) {
     </select>
   );
 }
+
+BarSelect.propTypes = {
+  bars: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

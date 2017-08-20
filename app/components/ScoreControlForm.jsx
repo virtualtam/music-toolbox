@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BarSelect from './BarSelect';
 import PatternButton from './PatternButton';
@@ -91,3 +92,13 @@ export default class ScoreControlForm extends React.Component {
     );
   }
 }
+
+ScoreControlForm.propTypes = {
+  defaultBars: PropTypes.number.isRequired,
+  checkedPatterns: PropTypes.arrayOf(PropTypes.string).isRequired,
+  defaultTimeSignature: PropTypes.string.isRequired,
+  bars: PropTypes.arrayOf(PropTypes.string).isRequired,
+  patterns: PropTypes.arrayOf(PropTypes.string).isRequired,
+  signatures: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired,
+};

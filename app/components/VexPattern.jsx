@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 import { generateSvgPattern } from '../VexUtils';
 
@@ -21,3 +23,7 @@ export default class VexPattern extends React.Component {
     return <span ref={(el) => { this.patternRef = el; }} />;
   }
 }
+
+VexPattern.propTypes = {
+  pattern: PropTypes.string.isRequired,
+};
