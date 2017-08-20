@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+/**
+ * Time signature selection
+ */
 export default function TimeSignatureSelect(props) {
   return (
     <select

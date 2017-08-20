@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import generateSvgScore from '../VexUtils';
 
 
-export default class Score extends React.Component {
+/**
+ * VexFlow SVG container for a whole score
+ */
+export default class VexScore extends React.Component {
   constructor(props) {
     super(props);
     this.scoreRef = null;
@@ -32,7 +35,7 @@ export default class Score extends React.Component {
   }
 }
 
-Score.propTypes = {
+VexScore.propTypes = {
   nBars: PropTypes.number.isRequired,
   patterns: PropTypes.arrayOf(PropTypes.string).isRequired,
   timeSignature: PropTypes.string.isRequired,

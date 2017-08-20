@@ -9,6 +9,10 @@ const BARS_PER_ROW = 2;
 // const CLEF = 'treble';
 const NOTE = 'b/4';
 
+
+/**
+ * Pick a suitable pattern from a list of items
+ */
 function randomPattern(patterns, maxDuration) {
   const suitablePatterns = patterns.filter((pattern) => {
     let duration = 0;
@@ -21,6 +25,9 @@ function randomPattern(patterns, maxDuration) {
 }
 
 
+/**
+ * Fill a stave bar with randomly chosen patterns
+ */
 function randomNotes(patterns, timeSignature) {
   const noteAmount = parseInt(timeSignature.split('/')[0], 10);
   const noteType = parseInt(timeSignature.split('/')[1], 10);
@@ -40,6 +47,9 @@ function randomNotes(patterns, timeSignature) {
 }
 
 
+/**
+ * Generate and render a rhythm score
+ */
 export default function generateSvgScore(nBars, patterns, timeSignature) {
   const svgContainer = document.createElement('div');
   const renderer = new VF.Renderer(svgContainer, VF.Renderer.Backends.SVG);
@@ -78,6 +88,9 @@ export default function generateSvgScore(nBars, patterns, timeSignature) {
 }
 
 
+/**
+ * Generate and render a single rhythm pattern
+ */
 export function generateSvgPattern(pattern, width, height) {
   const svgContainer = document.createElement('span');
   const renderer = new VF.Renderer(svgContainer, VF.Renderer.Backends.SVG);

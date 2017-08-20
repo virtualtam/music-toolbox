@@ -30,7 +30,9 @@ const PATTERNS = [
 ];
 const TIME_SIGNATURES = ['2/4', '3/4', '4/4', '6/8'];
 
-
+/**
+ * Random VexFlow Rhythm Sheet Generator
+ */
 export default class RhythmScoreApp extends React.Component {
   constructor() {
     super();

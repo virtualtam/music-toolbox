@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Number of generated bars' selection
+ */
 export default function BarSelect(props) {
   return (
     <select
@@ -19,7 +22,7 @@ export default function BarSelect(props) {
 }
 
 BarSelect.propTypes = {
-  bars: PropTypes.arrayOf(PropTypes.string).isRequired,
-  value: PropTypes.string.isRequired,
+  bars: PropTypes.arrayOf(PropTypes.number).isRequired,
+  value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };

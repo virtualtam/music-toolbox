@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { generateSvgPattern } from '../VexUtils';
 
 
+/**
+ * VexFlow SVG container for a single pattern
+ */
 export default class VexPattern extends React.Component {
   constructor(props) {
     super(props);

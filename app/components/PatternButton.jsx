@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import VexPattern from './VexPattern';
 
+
+/**
+ * Pattern toggle button
+ */
 export default function PatternButton(props) {
   const patternId = props.pattern.replace(' ', '');
   const klazz = props.active ? 'pure-button-active' : '';

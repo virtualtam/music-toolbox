@@ -6,6 +6,9 @@ import PatternButton from './PatternButton';
 import TimeSignatureSelect from './TimeSignatureSelect';
 
 
+/**
+ * VexFlow score generation settings
+ */
 export default class ScoreControlForm extends React.Component {
   constructor(props) {
     super(props);
@@ -95,9 +98,9 @@ export default class ScoreControlForm extends React.Component {
 
 ScoreControlForm.propTypes = {
   defaultBars: PropTypes.number.isRequired,
-  checkedPatterns: PropTypes.arrayOf(PropTypes.string).isRequired,
+  checkedPatterns: PropTypes.instanceOf(Set).isRequired,
   defaultTimeSignature: PropTypes.string.isRequired,
-  bars: PropTypes.arrayOf(PropTypes.string).isRequired,
+  bars: PropTypes.arrayOf(PropTypes.number).isRequired,
   patterns: PropTypes.arrayOf(PropTypes.string).isRequired,
   signatures: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func.isRequired,
