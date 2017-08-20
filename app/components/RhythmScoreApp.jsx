@@ -47,6 +47,9 @@ export default class RhythmScoreApp extends React.Component {
   render() {
     return (
       <div className="pure-g">
+        <div className="pure-u-1">
+          <h1>Rhythm Sheet Generator</h1>
+        </div>
         <div className="pure-u-1-4">
           <ScoreControlForm
             bars={BARS}

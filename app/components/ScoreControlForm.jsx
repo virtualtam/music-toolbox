@@ -45,7 +45,7 @@ export default class ScoreControlForm extends React.Component {
     return (
       <form className="pure-form pure-form-stacked" id="scoreControls">
         <fieldset>
-          <legend>Rhythm Sheet Generator</legend>
+          <legend>Settings</legend>
 
           <div className="pure-g">
             <div className="pure-u-1-2">
