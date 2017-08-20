@@ -17,6 +17,8 @@ const PATTERNS = [
   '8 8',
   '8 8r',
   '8r 8',
+  '8r 16 16',
+  '16 16 8r',
   '16 16 16 16',
   '16 16 8',
   '16 8 16',
@@ -35,7 +37,7 @@ export default class RhythmScoreApp extends React.Component {
     this.state = {
       nBars: BARS[1],
       patterns: PATTERNS,
-      checkedPatterns: PATTERNS.slice(0, 9),
+      checkedPatterns: PATTERNS.slice(4, 9),
       timeSignature: TIME_SIGNATURES[2],
     };
   }
