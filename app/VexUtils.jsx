@@ -76,3 +76,40 @@ export default function generateSvgScore(nBars, patterns, timeSignature) {
 
   return svgContainer;
 }
+
+
+export function generateSvgPattern(pattern, width, height) {
+  const svgContainer = document.createElement('span');
+  const renderer = new VF.Renderer(svgContainer, VF.Renderer.Backends.SVG);
+  renderer.resize(width, height);
+  const context = renderer.getContext();
+
+  const notes = [];
+  pattern.split(' ').forEach((note) => {
+    notes.push(
+      new VF.StaveNote({ keys: [NOTE], duration: note, stem_direction: -1 }),
+    );
+  });
+  const beams = VF.Beam.generateBeams(notes, {
+    beam_rests: true,
+    beam_middle_only: true,
+  });
+  const stave = new VF.Stave(
+    0,
+    0,
+    width - 5,
+    {
+      num_lines: 0,
+      left_bar: false,
+      right_bar: false,
+      space_above_staff_ln: 0,
+      space_below_staff_ln: 0,
+    },
+  );
+  stave.setContext(context).draw();
+  VF.Formatter.FormatAndDraw(context, stave, notes);
+  beams.forEach((beam) => {
+    beam.setContext(context).draw();
+  });
+  return svgContainer;
+}

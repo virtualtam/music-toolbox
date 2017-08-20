@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Bars from './Bars';
-import Pattern from './Pattern';
+import PatternButton from './PatternButton';
 import TimeSignatures from './TimeSignatures';
 
 
@@ -26,11 +26,12 @@ export default class ControlForm extends React.Component {
 
   handleChangePattern(event) {
     const checkedPatterns = this.state.checkedPatterns;
+    const pattern = event.target.value;
 
-    if (event.target.checked) {
-      checkedPatterns.add(event.target.value);
+    if (checkedPatterns.has(pattern)) {
+      checkedPatterns.delete(pattern);
     } else {
-      checkedPatterns.delete(event.target.value);
+      checkedPatterns.add(pattern);
     }
 
     this.setState(checkedPatterns);
@@ -60,13 +61,15 @@ export default class ControlForm extends React.Component {
 
           {this.props.patterns.map(
             pattern =>
-              <Pattern
+              <PatternButton
                 key={pattern}
                 pattern={pattern}
-                checked={this.state.checkedPatterns.has(pattern)}
-                onChange={event => this.handleChangePattern(event)}
+                active={this.state.checkedPatterns.has(pattern)}
+                onClick={event => this.handleChangePattern(event)}
               />,
           )}
+
+          <br />
 
           <button
             type="button"
