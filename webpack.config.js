@@ -37,7 +37,7 @@ const commonConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: HtmlWebpackTemplate,
-      title: 'd3v',
+      title: 'Music Toolbox',
       appMountId: 'app',
       inject: false,
     }),
@@ -59,7 +59,10 @@ const productionConfig = () => {
       loaders: [
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
+          loader: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: 'css-loader',
+          }),
         },
         {
           test: /\.jsx$/,
@@ -68,6 +71,17 @@ const productionConfig = () => {
         },
       ],
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: HtmlWebpackTemplate,
+        title: 'Music Toolbox',
+        appMountId: 'app',
+        inject: false,
+      }),
+      new ExtractTextPlugin({
+        filename: '[name].css',
+      }),
+    ],
   };
 
   return Object.assign(
