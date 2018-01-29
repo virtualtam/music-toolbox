@@ -1,9 +1,9 @@
 {
-  "name": "www",
+  "name": "music-toolbox",
   "version": "1.0.0",
   "main": "index.js",
   "author": "VirtualTam <virtualtam@flibidi.net>",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-preset-es2015": "^6.24.1",
