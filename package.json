@@ -1,8 +1,10 @@
 {
   "name": "music-toolbox",
+  "description": "A toolbox for the practicing musician",
+  "repository": "https://github.com/virtualtam/music-toolbox",
+  "author": "VirtualTam <virtualtam@flibidi.net>",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "VirtualTam <virtualtam@flibidi.net>",
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@babel/preset-env": "^7.4.5",
