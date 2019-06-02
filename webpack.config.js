@@ -2,7 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
 const PATHS = {
@@ -26,7 +26,12 @@ const commonConfig = {
       {
         test: /\.jsx$/,
         exclude: '/node_modules/',
-        loader: 'babel-loader?cacheDirectory',
+        use: {
+          loader: 'babel-loader?cacheDirectory',
+          options: {
+            presets: ['@babel/preset-env']
+          },
+        },
       },
     ],
   },
@@ -41,8 +46,9 @@ const commonConfig = {
       appMountId: 'app',
       inject: false,
     }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new PurifyCSSPlugin({
       paths: glob.sync(`${PATHS.app}/**/*.js`, { nodir: true }),
@@ -55,19 +61,25 @@ const commonConfig = {
 
 const productionConfig = () => {
   const config = {
+    mode: 'production',
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader',
-          }),
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader'
+          ],
         },
         {
           test: /\.jsx$/,
           exclude: '/node_modules/',
-          loader: 'babel-loader?cacheDirectory',
+          use: {
+            loader: 'babel-loader?cacheDirectory',
+            options: {
+              presets: ['@babel/preset-env']
+            },
+          }
         },
       ],
     },
@@ -78,8 +90,10 @@ const productionConfig = () => {
         appMountId: 'app',
         inject: false,
       }),
-      new ExtractTextPlugin({
+      new MiniCssExtractPlugin({
         filename: '[name].css',
+        chunkFilename: '[id].css',
+        fallback: 'style-loader',
       }),
     ],
   };
@@ -93,6 +107,7 @@ const productionConfig = () => {
 
 const developmentConfig = () => {
   const config = {
+    mode: 'development',
     devServer: {
       historyApiFallback: true,
       stats: 'errors-only',
