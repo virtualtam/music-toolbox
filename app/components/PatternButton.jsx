@@ -17,7 +17,7 @@ export default function PatternButton(props) {
       type="button"
       className={`${klazz} pure-button`}
       value={props.pattern}
-      onClick={(event) => props.onClick(event)}
+      onClick={event => props.onClick(event)}
     >
       <VexPattern pattern={props.pattern} />
     </button>

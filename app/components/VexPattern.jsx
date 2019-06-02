@@ -25,7 +25,7 @@ export default class VexPattern extends React.Component {
   render() {
     return (
       <span
-        style={{pointerEvents: 'none'}}
+        style={{ pointerEvents: 'none' }}
         ref={(el) => { this.patternRef = el; }}
       />
     );
