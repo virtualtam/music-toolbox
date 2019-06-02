@@ -29,7 +29,7 @@ const commonConfig = {
         use: {
           loader: 'babel-loader?cacheDirectory',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -68,7 +68,7 @@ const productionConfig = () => {
           test: /\.css$/,
           use: [
             MiniCssExtractPlugin.loader,
-            'css-loader'
+            'css-loader',
           ],
         },
         {
@@ -77,9 +77,9 @@ const productionConfig = () => {
           use: {
             loader: 'babel-loader?cacheDirectory',
             options: {
-              presets: ['@babel/preset-env']
+              presets: ['@babel/preset-env'],
             },
-          }
+          },
         },
       ],
     },

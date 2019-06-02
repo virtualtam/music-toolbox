@@ -10,13 +10,11 @@ export default function BarSelect(props) {
       value={props.value}
       onChange={event => props.onChange(event)}
     >
-      {props.bars.map(nBars =>
-        (
-          <option value={nBars} key={nBars}>
-            {nBars}
-          </option>
-        ),
-      )}
+      {props.bars.map(nBars => (
+        <option value={nBars} key={nBars}>
+          {nBars}
+        </option>
+      ))}
     </select>
   );
 }

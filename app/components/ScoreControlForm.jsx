@@ -29,7 +29,7 @@ export default class ScoreControlForm extends React.Component {
   }
 
   handleChangePattern(event) {
-    const checkedPatterns = this.state.checkedPatterns;
+    const { checkedPatterns } = this.state;
     const pattern = event.target.value;
 
     if (checkedPatterns.has(pattern)) {

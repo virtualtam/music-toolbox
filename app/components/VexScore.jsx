@@ -20,6 +20,7 @@ export default class VexScore extends React.Component {
       this.props.timeSignature,
     ));
   }
+
   componentWillReceiveProps(newProps) {
     this.props = newProps;
     this.scoreRef.innerHTML = '';
