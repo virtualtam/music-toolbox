@@ -9,13 +9,13 @@ import VexPattern from './VexPattern';
  */
 export default function PatternButton(props) {
   const patternId = props.pattern.replace(' ', '');
-  const klazz = props.active ? 'pure-button-active' : '';
+  const klazz = props.active ? 'is-warning is-active' : '';
 
   return (
     <button
       id={patternId}
       type="button"
-      className={`${klazz} pure-button`}
+      className={`${klazz} button`}
       value={props.pattern}
       onClick={event => props.onClick(event)}
     >

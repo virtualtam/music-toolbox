@@ -1,4 +1,4 @@
-import 'purecss';
+import 'bulma/css/bulma.css';
 import React from 'react';
 
 import VexScore from './VexScore';
@@ -50,27 +50,27 @@ export default class RhythmScoreApp extends React.Component {
 
   render() {
     return (
-      <div className="pure-g">
-        <div className="pure-u-1">
-          <h1>Rhythm Sheet Generator</h1>
-        </div>
-        <div className="pure-u-1-4">
-          <ScoreControlForm
-            bars={BARS}
-            defaultBars={BARS[1]}
-            patterns={this.state.patterns}
-            checkedPatterns={new Set(this.state.checkedPatterns)}
-            signatures={TIME_SIGNATURES}
-            defaultTimeSignature={TIME_SIGNATURES[2]}
-            onClick={(event, props) => this.handleClick(event, props)}
-          />
-        </div>
-        <div className="pure-u-3-4">
-          <VexScore
-            nBars={this.state.nBars}
-            patterns={Array.from(this.state.checkedPatterns)}
-            timeSignature={this.state.timeSignature}
-          />
+      <div className="container">
+        <h1 className="title">Rhythm Sheet Generator</h1>
+        <div className="columns">
+          <div className="column is-three-fifths">
+            <VexScore
+              nBars={this.state.nBars}
+              patterns={Array.from(this.state.checkedPatterns)}
+              timeSignature={this.state.timeSignature}
+            />
+          </div>
+          <div className="column">
+            <ScoreControlForm
+              bars={BARS}
+              defaultBars={BARS[1]}
+              patterns={this.state.patterns}
+              checkedPatterns={new Set(this.state.checkedPatterns)}
+              signatures={TIME_SIGNATURES}
+              defaultTimeSignature={TIME_SIGNATURES[2]}
+              onClick={(event, props) => this.handleClick(event, props)}
+            />
+          </div>
         </div>
       </div>
     );

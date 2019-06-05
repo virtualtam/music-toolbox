@@ -47,29 +47,45 @@ export default class ScoreControlForm extends React.Component {
 
   render() {
     return (
-      <form className="pure-form pure-form-stacked" id="scoreControls">
+      <form className="box" id="scoreControls">
         <fieldset>
-          <legend>Settings</legend>
-
-          <div className="pure-g">
-            <div className="pure-u-1-2">
-              <label htmlFor="timeSignature">Time signature</label>
-              <TimeSignatureSelect
-                signatures={this.props.signatures}
-                value={this.state.timeSignature}
-                onChange={event => this.handleChangeTimeSignature(event)}
-              />
-            </div>
-            <div className="pure-u-1-2">
-              <label htmlFor="nBars">Bars</label>
-              <BarSelect
-                bars={this.props.bars}
-                value={this.state.nBars}
-                onChange={event => this.handleChangeBar(event)}
-              />
+          <div className="field">
+            <label className="label" htmlFor="timeSignature">Time signature</label>
+            <div className="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <TimeSignatureSelect
+                      signatures={this.props.signatures}
+                      value={this.state.timeSignature}
+                      onChange={event => this.handleChangeTimeSignature(event)}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
+          <div className="field">
+            <label className="label" htmlFor="nBars">Bars</label>
+            <div className="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <BarSelect
+                      bars={this.props.bars}
+                      value={this.state.nBars}
+                      onChange={event => this.handleChangeBar(event)}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Patterns</label>
+            <div className="buttons are-large">
           {this.props.patterns.map(
             pattern => (
               <PatternButton
@@ -80,12 +96,12 @@ export default class ScoreControlForm extends React.Component {
               />
             ),
           )}
-
-          <br />
+            </div>
+          </div>
 
           <button
             type="button"
-            className="pure-button pure-button-primary"
+            className="button is-primary is-medium"
             onClick={event => this.handleClick(event)}
           >
             Generate!
