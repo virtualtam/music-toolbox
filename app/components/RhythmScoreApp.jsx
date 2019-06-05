@@ -6,7 +6,7 @@ import ScoreControlForm from './ScoreControlForm';
 
 
 /* Score properties */
-const BARS = [9, 12];
+const BARS = [9, 12, 16];
 const PATTERNS = [
   '1',
   '1r',
