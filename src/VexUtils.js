@@ -60,7 +60,7 @@ export default function generateSvgScore(nBars, patterns, timeSignature) {
   const context = renderer.getContext();
   context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');
 
-  for (let i = 0; i < nBars; i++) {
+  for (let i = 0; i < nBars; i += 1) {
     const stave = new VF.Stave(
       (i % BARS_PER_ROW) * BAR_WIDTH,
       Math.floor(i / BARS_PER_ROW) * BAR_HEIGHT,
