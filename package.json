@@ -13,13 +13,13 @@
   "dependencies": {
     "bulma": "^0.7.5",
     "core-js": "^2.6.11",
-    "vexflow": "^1.2.89",
+    "vexflow": "^1.2.90",
     "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-eslint": "^3.12.1",
-    "@vue/cli-service": "^4.1.2",
+    "@vue/cli-service": "^4.2.3",
     "@vue/eslint-config-airbnb": "^4.0.1",
     "babel-eslint": "^7.2.3",
     "eslint": "^5.16.0",
