@@ -82,7 +82,7 @@ export default {
   computed: {
     patternButtonStates() {
       return this.patterns.map(
-        p => (
+        (p) => (
           {
             pattern: p,
             active: this.checkedPatterns.includes(p),
@@ -101,7 +101,7 @@ export default {
   methods: {
     onPatternClick(pattern) {
       if (this.checkedPatterns.includes(pattern)) {
-        this.checkedPatterns = this.checkedPatterns.filter(item => item !== pattern);
+        this.checkedPatterns = this.checkedPatterns.filter((item) => item !== pattern);
       } else {
         this.checkedPatterns.push(pattern);
       }

@@ -9,7 +9,6 @@ const BARS_PER_ROW = 2;
 // const CLEF = 'treble';
 const NOTE = 'b/4';
 
-
 /**
  * Pick a suitable pattern from a list of items
  */
@@ -23,7 +22,6 @@ function randomPattern(patterns, maxDuration) {
   });
   return suitablePatterns[Math.floor((Math.random() * suitablePatterns.length))];
 }
-
 
 /**
  * Fill a stave bar with randomly chosen patterns
@@ -45,7 +43,6 @@ function randomNotes(patterns, timeSignature) {
   }
   return notes;
 }
-
 
 /**
  * Generate and render a rhythm score
@@ -86,7 +83,6 @@ export default function generateSvgScore(nBars, patterns, timeSignature) {
 
   return svgContainer;
 }
-
 
 /**
  * Generate and render a single rhythm pattern
