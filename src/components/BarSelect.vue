@@ -1,7 +1,7 @@
 <template>
   <select
-    :value="value"
-    @input="$emit('input', $event.target.value)"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   >
     <option
       v-for="nBars in bars"
@@ -16,9 +16,10 @@
 <script>
 export default {
   name: 'BarSelect',
+  emits: ['update:modelValue'],
   props: {
     bars: Array,
-    value: Number,
+    modelValue: Number,
   },
 };
 </script>

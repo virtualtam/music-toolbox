@@ -1,7 +1,7 @@
 <template>
   <select
-    :value="value"
-    @input="$emit('input', $event.target.value)"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   >
     <option
       v-for="timeSignature in timeSignatures"
@@ -16,9 +16,10 @@
 <script>
 export default {
   name: 'TimeSignatureSelect',
+  emits: ['update:modelValue'],
   props: {
     timeSignatures: Array,
-    value: String,
+    modelValue: String,
   },
 };
 </script>

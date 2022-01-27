@@ -18,6 +18,7 @@ export default {
   components: {
     VexPattern,
   },
+  emits: ['click'],
   props: {
     active: Boolean,
     pattern: String,
