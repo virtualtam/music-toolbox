@@ -1,18 +1,8 @@
-<template>
-  <div id="app">
-    <RhythmScore/>
-  </div>
-</template>
-
-<script>
+<script setup>
+import 'bulma/css/bulma.css';
 import RhythmScore from './components/RhythmScore.vue';
-
-require('bulma/css/bulma.css');
-
-export default {
-  name: 'app',
-  components: {
-    RhythmScore,
-  },
-};
 </script>
+
+<template>
+  <RhythmScore/>
+</template>
