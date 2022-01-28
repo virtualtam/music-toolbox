@@ -1,16 +1,22 @@
 <template>
-  <form class="box" id="scoreControls">
+  <form
+    id="scoreControls"
+    class="box"
+  >
     <fieldset>
       <div class="field">
-        <label class="label" htmlFor="timeSignature">Time signature</label>
+        <label
+          class="label"
+          htmlFor="timeSignature"
+        >Time signature</label>
         <div class="field-body">
           <div class="field is-narrow">
             <div class="control">
               <div class="select is-fullwidth">
                 <TimeSignatureSelect
                   v-model="timeSignature"
-                  :initialTimeSignature="initialTimeSignature"
-                  :timeSignatures="timeSignatures"
+                  :initial-time-signature="initialTimeSignature"
+                  :time-signatures="timeSignatures"
                 />
               </div>
             </div>
@@ -19,7 +25,10 @@
       </div>
 
       <div class="field">
-        <label class="label" htmlFor="nBars">Bars</label>
+        <label
+          class="label"
+          htmlFor="nBars"
+        >Bars</label>
         <div class="field-body">
           <div class="field is-narrow">
             <div class="control">
@@ -27,7 +36,7 @@
                 <BarSelect
                   v-model.number="nBars"
                   :bars="bars"
-                  :initialNBars="initialNBars"
+                  :initial-n-bars="initialNBars"
                 />
               </div>
             </div>
@@ -40,18 +49,18 @@
         <div class="buttons are-large">
           <PatternButton
             v-for="buttonState in patternButtonStates"
-            @click="onPatternClick"
             :key="buttonState.pattern"
             :active="buttonState.active"
             :pattern="buttonState.pattern"
+            @click="onPatternClick"
           />
         </div>
       </div>
 
       <button
-        @click="$emit('generate-score', nBars, checkedPatterns, timeSignature)"
         type="button"
         class="button is-primary is-medium"
+        @click="$emit('generate-score', nBars, checkedPatterns, timeSignature)"
       >
         Generate!
       </button>
@@ -79,6 +88,13 @@ export default {
     initialTimeSignature: String,
     timeSignatures: Array,
   },
+  data() {
+    return {
+      checkedPatterns: this.initialCheckedPatterns,
+      nBars: this.initialNBars,
+      timeSignature: this.initialTimeSignature,
+    };
+  },
   computed: {
     patternButtonStates() {
       return this.patterns.map(
@@ -90,13 +106,6 @@ export default {
         ),
       );
     },
-  },
-  data() {
-    return {
-      checkedPatterns: this.initialCheckedPatterns,
-      nBars: this.initialNBars,
-      timeSignature: this.initialTimeSignature,
-    };
   },
   methods: {
     onPatternClick(pattern) {

@@ -5,8 +5,8 @@
   >
     <option
       v-for="nBars in bars"
-      :value="nBars"
       :key="nBars"
+      :value="nBars"
     >
       {{ nBars }}
     </option>
@@ -16,10 +16,10 @@
 <script>
 export default {
   name: 'BarSelect',
-  emits: ['update:modelValue'],
   props: {
     bars: Array,
     modelValue: Number,
   },
+  emits: ['update:modelValue'],
 };
 </script>

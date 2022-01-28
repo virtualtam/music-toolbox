@@ -4,5 +4,5 @@ import RhythmScore from './components/RhythmScore.vue';
 </script>
 
 <template>
-  <RhythmScore/>
+  <RhythmScore />
 </template>

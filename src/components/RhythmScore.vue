@@ -1,25 +1,27 @@
 <template>
   <div class="container">
-    <h1 class="title">Rhythm Sheet Generator</h1>
+    <h1 class="title">
+      Rhythm Sheet Generator
+    </h1>
     <div class="columns">
       <div class="column is-three-fifths">
         <VexScore
           :key="scoreKey"
-          :nBars="nBars"
+          :n-bars="nBars"
           :patterns="checkedPatterns"
-          :timeSignature="timeSignature"
+          :time-signature="timeSignature"
         />
       </div>
       <div class="column">
         <ScoreControlForm
-          @generate-score="onGenerateScore"
           :bars="bars"
-          :initialNBars="nBars"
+          :initial-n-bars="nBars"
           :patterns="patterns"
-          :initialCheckedPatterns="initialCheckedPatterns"
-          :initialTimeSignature="initialTimeSignature"
-          :timeSignatures="timeSignatures"
-          :timeSignature="timeSignature"
+          :initial-checked-patterns="initialCheckedPatterns"
+          :initial-time-signature="initialTimeSignature"
+          :time-signatures="timeSignatures"
+          :time-signature="timeSignature"
+          @generate-score="onGenerateScore"
         />
       </div>
     </div>

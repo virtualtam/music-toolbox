@@ -1,5 +1,5 @@
 <template>
-  <div id="score"/>
+  <div id="score" />
 </template>
 
 <script>

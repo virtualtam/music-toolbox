@@ -5,8 +5,8 @@
   >
     <option
       v-for="timeSignature in timeSignatures"
-      :value="timeSignature"
       :key="timeSignature"
+      :value="timeSignature"
     >
       {{ timeSignature }}
     </option>
@@ -16,10 +16,10 @@
 <script>
 export default {
   name: 'TimeSignatureSelect',
-  emits: ['update:modelValue'],
   props: {
     timeSignatures: Array,
     modelValue: String,
   },
+  emits: ['update:modelValue'],
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <span :id="patternId"/>
+  <span :id="patternId" />
 </template>
 
 <script>

@@ -1,10 +1,10 @@
 <template>
   <button
-    :id=patternId
+    :id="patternId"
     :class="klazz"
-    :value=pattern
-    @click="$emit('click', pattern)"
+    :value="pattern"
     type="button"
+    @click="$emit('click', pattern)"
   >
     <VexPattern :pattern="pattern" />
   </button>
@@ -18,11 +18,11 @@ export default {
   components: {
     VexPattern,
   },
-  emits: ['click'],
   props: {
     active: Boolean,
     pattern: String,
   },
+  emits: ['click'],
   computed: {
     patternId() {
       return this.pattern.replace(/ /g, '');
