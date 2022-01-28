@@ -81,13 +81,32 @@ export default {
     TimeSignatureSelect,
   },
   props: {
-    bars: Array,
-    initialNBars: Number,
-    initialCheckedPatterns: Array,
-    patterns: Array,
-    initialTimeSignature: String,
-    timeSignatures: Array,
+    bars: {
+      type: Array,
+      required: true,
+    },
+    initialNBars: {
+      type: Number,
+      required: true,
+    },
+    initialCheckedPatterns: {
+      type: Array,
+      required: true,
+    },
+    patterns: {
+      type: Array,
+      required: true,
+    },
+    initialTimeSignature: {
+      type: String,
+      required: true,
+    },
+    timeSignatures: {
+      type: Array,
+      required: true,
+    },
   },
+  emits: ['generate-score'],
   data() {
     return {
       checkedPatterns: this.initialCheckedPatterns,

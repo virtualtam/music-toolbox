@@ -17,8 +17,14 @@
 export default {
   name: 'TimeSignatureSelect',
   props: {
-    timeSignatures: Array,
-    modelValue: String,
+    timeSignatures: {
+      type: Array,
+      required: true,
+    },
+    modelValue: {
+      type: String,
+      required: true,
+    },
   },
   emits: ['update:modelValue'],
 };

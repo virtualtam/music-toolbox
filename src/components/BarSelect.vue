@@ -17,8 +17,14 @@
 export default {
   name: 'BarSelect',
   props: {
-    bars: Array,
-    modelValue: Number,
+    bars: {
+      type: Array,
+      required: true,
+    },
+    modelValue: {
+      type: Number,
+      required: true,
+    },
   },
   emits: ['update:modelValue'],
 };

@@ -8,9 +8,18 @@ import generateSvgScore from '../VexUtils';
 export default {
   name: 'VexScore',
   props: {
-    nBars: Number,
-    patterns: Array,
-    timeSignature: String,
+    nBars: {
+      type: Number,
+      required: true
+    },
+    patterns: {
+      type: Array,
+      required: true
+    },
+    timeSignature: {
+      type: String,
+      required: true
+    }
   },
   mounted() {
     this.render();

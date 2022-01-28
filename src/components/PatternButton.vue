@@ -19,8 +19,14 @@ export default {
     VexPattern,
   },
   props: {
-    active: Boolean,
-    pattern: String,
+    active: {
+      type: Boolean,
+      default: false,
+    },
+    pattern: {
+      type: String,
+      required: true,
+    }
   },
   emits: ['click'],
   computed: {

@@ -8,7 +8,10 @@ import { generateSvgPattern } from '../VexUtils';
 export default {
   name: 'VexPattern',
   props: {
-    pattern: String,
+    pattern: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
