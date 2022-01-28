@@ -1,4 +1,12 @@
 # music-toolbox - A collection of tools for the practicing musician
+## Rhythm Sheet Generator
+<img src="./docs/rhythm-sheet-generator.jpg" alt="Rhythm Sheet Generator" width="400px">
+
+A generator of random rhythmic solfeggio sheets, inspired by exercises from:
+
+- Dante Agostini's _Rhythmic Solfeggio I & II_ methods;
+- Louis Bellson's _Modern Reading Text in 4/4 For All Instruments_.
+
 ## Development
 Install development and run dependencies with:
 
