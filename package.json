@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "bulma": "^1.0.2",
-    "vexflow": "^3.0.9",
+    "vexflow": "^4.2.5",
     "vue": "^3.5.13"
   },
   "devDependencies": {
